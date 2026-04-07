@@ -5,6 +5,7 @@ export interface Case {
   shortDescription: string;
   difficulty: string;
   tags: string[];
+  isFoundationCase?: boolean;
 }
 
 export interface CaseVitals {

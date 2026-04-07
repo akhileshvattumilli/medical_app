@@ -14,5 +14,6 @@ export interface Resource {
   sourceType: string;
   sourceReference: SourceReference;
   assetKey: string;
+  externalUrl?: string;
   tags: string[];
 }

@@ -1,16 +1,31 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Resource } from '../../types/resource';
 import { colors } from '../../constants/theme';
 
 interface ResourceCardProps {
   resource: Resource;
+  bookmarked?: boolean;
+  onToggleBookmark?: () => void;
 }
 
-export default function ResourceCard({ resource }: ResourceCardProps) {
+export default function ResourceCard({
+  resource,
+  bookmarked = false,
+  onToggleBookmark,
+}: ResourceCardProps) {
   return (
     <View style={styles.container}>
-      <View style={styles.typeBadge}>
-        <Text style={styles.typeText}>{resource.type}</Text>
+      <View style={styles.topRow}>
+        <View style={styles.typeBadge}>
+          <Text style={styles.typeText}>{resource.type}</Text>
+        </View>
+        {onToggleBookmark ? (
+          <Pressable style={styles.bookmarkButton} onPress={onToggleBookmark}>
+            <Text style={styles.bookmarkText}>
+              {bookmarked ? 'Saved' : 'Save Resource'}
+            </Text>
+          </Pressable>
+        ) : null}
       </View>
       <Text style={styles.title}>{resource.title}</Text>
       <Text style={styles.description}>{resource.description}</Text>
@@ -31,10 +46,19 @@ export default function ResourceCard({ resource }: ResourceCardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.cardBg,
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 12,
+    backgroundColor: colors.white,
+    borderRadius: 18,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  topRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: 10,
+    flexWrap: 'wrap',
+    marginBottom: 10,
   },
   typeBadge: {
     alignSelf: 'flex-start',
@@ -42,7 +66,6 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     paddingHorizontal: 6,
     paddingVertical: 2,
-    marginBottom: 6,
   },
   typeText: {
     fontSize: 10,
@@ -50,17 +73,28 @@ const styles = StyleSheet.create({
     color: colors.maroon,
     textTransform: 'uppercase',
   },
-  title: {
-    fontSize: 14,
-    fontWeight: '600',
+  bookmarkButton: {
+    backgroundColor: colors.cloud,
+    borderRadius: 999,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+  },
+  bookmarkText: {
     color: colors.textPrimary,
-    marginBottom: 4,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: colors.textPrimary,
+    marginBottom: 6,
   },
   description: {
-    fontSize: 13,
+    fontSize: 14,
     color: colors.textSecondary,
-    lineHeight: 18,
-    marginBottom: 4,
+    lineHeight: 22,
+    marginBottom: 6,
   },
   caption: {
     fontSize: 12,
