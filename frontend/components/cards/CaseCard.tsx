@@ -3,16 +3,6 @@ import type { Case } from '../../types/case';
 import { colors, layout, shadows } from '../../constants/theme';
 import { CardChevron, CardProgressTrack, cardPressableBase } from './cardShared';
 
-const DIFFICULTY_STYLE: Record<string, { bg: string; text: string; label: string }> = {
-  easy:     { bg: colors.successBg,  text: colors.success, label: 'Foundational' },
-  medium:   { bg: colors.goldFaint,  text: colors.gold,    label: 'Intermediate' },
-  hard:     { bg: colors.maroonFaint, text: colors.maroon, label: 'Advanced' },
-};
-
-function getDifficultyStyle(difficulty: string) {
-  return DIFFICULTY_STYLE[difficulty.toLowerCase()] ?? { bg: colors.cloud, text: colors.textMuted, label: difficulty };
-}
-
 interface CaseCardProps {
   caseItem: Case;
   onPress: () => void;
@@ -21,7 +11,6 @@ interface CaseCardProps {
 }
 
 export default function CaseCard({ caseItem, onPress, progress, publishStatus }: CaseCardProps) {
-  const diff = getDifficultyStyle(caseItem.difficulty);
   const started = typeof progress === 'number' && progress > 0;
   const done = typeof progress === 'number' && progress >= 100;
 
@@ -35,9 +24,6 @@ export default function CaseCard({ caseItem, onPress, progress, publishStatus }:
       <View style={styles.content}>
         <View style={styles.header}>
           <Text style={styles.title} numberOfLines={2}>{caseItem.title}</Text>
-          <View style={[styles.diffBadge, { backgroundColor: diff.bg }]}>
-            <Text style={[styles.diffText, { color: diff.text }]}>{diff.label}</Text>
-          </View>
         </View>
 
         <Text style={styles.description} numberOfLines={2}>
@@ -82,11 +68,7 @@ const styles = StyleSheet.create({
     minWidth: 0,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 10,
     marginBottom: 8,
-    flexWrap: 'wrap',
   },
   title: {
     flex: 1,
@@ -96,17 +78,6 @@ const styles = StyleSheet.create({
     letterSpacing: -0.1,
     lineHeight: 24,
     minWidth: 120,
-  },
-  diffBadge: {
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    flexShrink: 0,
-  },
-  diffText: {
-    fontSize: 11,
-    fontWeight: '700',
-    letterSpacing: 0.2,
   },
   description: {
     fontSize: 14,

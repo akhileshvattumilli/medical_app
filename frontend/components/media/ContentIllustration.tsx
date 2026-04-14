@@ -4,6 +4,7 @@ import { Image } from 'expo-image';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import type { IllustrationAnimation, IllustrationHotspot } from '../../types/mediaInteractive';
 import { colors, layout } from '../../constants/theme';
+import { resolveCurriculumImageSource } from '../../services/content/curriculumAssets';
 
 export type ContentIllustrationProps = {
   url: string;
@@ -52,6 +53,8 @@ export default function ContentIllustration({
     return activeUrl;
   }, [animation, animPlaying, activeUrl]);
 
+  const imageSource = useMemo(() => resolveCurriculumImageSource(displayUri), [displayUri]);
+
   useEffect(() => {
     setActiveUrl(url);
     setRepairTried(false);
@@ -63,6 +66,10 @@ export default function ContentIllustration({
   }, [animation]);
 
   const handleImageError = () => {
+    if (typeof imageSource === 'number') {
+      setFailed(true);
+      return;
+    }
     if (!repairTried && repairedUrl && repairedUrl !== activeUrl) {
       setRepairTried(true);
       setActiveUrl(repairedUrl);
@@ -119,7 +126,7 @@ export default function ContentIllustration({
       <View style={frameStyles} onLayout={onFrameLayout}>
         <Pressable style={StyleSheet.absoluteFill} accessibilityRole="image" accessibilityLabel={caption ?? 'Figure'}>
           <Image
-            source={{ uri: displayUri }}
+            source={imageSource}
             style={imageStyles}
             contentFit="contain"
             transition={220}

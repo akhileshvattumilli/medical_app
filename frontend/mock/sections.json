@@ -7,8 +7,8 @@
     "content": "Asthma is a chronic inflammatory airway disorder with variable, usually reversible airflow obstruction. Core features include bronchoconstriction, mucus hypersecretion, mucosal edema, airway hyperresponsiveness, and over time airway remodeling with smooth muscle hypertrophy, fibrosis, and basement membrane thickening.",
     "illustrations": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Asthma_%28Lungs%29.png/640px-Asthma_%28Lungs%29.png",
-        "caption": "Conceptual comparison: narrowed versus relaxed airway (reference illustration)."
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Asthma.jpg",
+        "caption": "Clinical context: asthma care and monitoring (reference photo, Commons)."
       }
     ],
     "order": 1,
@@ -26,31 +26,8 @@
     "content": "Early asthma involves allergen-driven IgE cross-linking on mast cells and basophils with release of histamine, prostaglandins, and leukotrienes that rapidly narrow the airway. The late phase recruits eosinophils, T cells, basophils, and neutrophils, sustaining inflammation, edema, mucus production, and airway injury.",
     "illustrations": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/IgE_mediated_activation_of_mast_cell.svg/640px-IgE_mediated_activation_of_mast_cell.svg.png",
-        "caption": "Conceptual overview: IgE-mediated mast-cell activation (open-license reference figure).",
-        "hotspots": [
-          {
-            "id": "ige_binding",
-            "label": "IgE / FcεRI",
-            "description": "Allergen-specific IgE bound to high-affinity receptors primes mast cells for activation.",
-            "shape": "rect",
-            "rect": { "x": 0.08, "y": 0.12, "w": 0.22, "h": 0.2 }
-          },
-          {
-            "id": "mast_cell",
-            "label": "Mast cell",
-            "description": "Cross-linking triggers degranulation and release of histamine, leukotrienes, and other mediators.",
-            "shape": "rect",
-            "rect": { "x": 0.38, "y": 0.28, "w": 0.32, "h": 0.45 }
-          },
-          {
-            "id": "mediators",
-            "label": "Released mediators",
-            "description": "Vasoactive and inflammatory mediators drive early bronchoconstriction and mucus secretion.",
-            "shape": "circle",
-            "circle": { "cx": 0.78, "cy": 0.42, "r": 0.12 }
-          }
-        ]
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/IgE_Fc%CE%B5RI_Receptor_Signal_Cascade.jpg",
+        "caption": "IgE–FcεRI signaling cascade (reference figure, Commons)."
       }
     ],
     "order": 1,
@@ -66,11 +43,11 @@
     "caseId": "asthma_foundation_case",
     "type": "physiology",
     "title": "Physiology of airflow limitation",
-    "content": "Asthma is an obstructive lung disease in which airway narrowing sharply raises resistance and reduces expiratory flow. Pulmonary function testing typically shows reduced FEV1 and reduced FEV1/FVC, with improvement after bronchodilator use. Air trapping increases work of breathing and contributes to hyperinflation during exacerbations.\n\n![Flow-volume loop patterns](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flow_volume_loops.png/500px-Flow_volume_loops.png)",
+    "content": "Asthma is an obstructive lung disease in which airway narrowing sharply raises resistance and reduces expiratory flow. Pulmonary function testing typically shows reduced FEV1 and reduced FEV1/FVC, with improvement after bronchodilator use. Air trapping increases work of breathing and contributes to hyperinflation during exacerbations.\n\n![Flow-volume loop patterns](https://upload.wikimedia.org/wikipedia/commons/8/85/Flow-volume-loop.svg)",
     "illustrations": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Spirometry_curve.png/640px-Spirometry_curve.png",
-        "caption": "Spirometry time–volume curve (reference diagram)."
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Spirometry_NIH_%28Polish%29.jpg",
+        "caption": "Spirometry (reference photo, NIH via Commons)."
       }
     ],
     "order": 1,
@@ -89,8 +66,8 @@
     "content": "Normal conducting airways are lined by ciliated pseudostratified columnar epithelium with goblet cells and a relatively thin basement membrane. Asthmatic airways show epithelial shedding, goblet-cell hyperplasia, eosinophilic inflammation, increased vascular permeability, subepithelial fibrosis, smooth muscle hypertrophy, and greater mucus burden.",
     "illustrations": [
       {
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Pseudostratified_ciliated_columnar_epithelium.JPEG/640px-Pseudostratified_ciliated_columnar_epithelium.JPEG",
-        "caption": "Pseudostratified ciliated columnar epithelium (reference micrograph)."
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Blausen_0750_PseudostratifiedCiliatedColumnar.png",
+        "caption": "Pseudostratified ciliated columnar epithelium (reference diagram, Commons)."
       }
     ],
     "order": 1,

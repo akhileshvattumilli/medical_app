@@ -375,6 +375,14 @@ function sortByName<T extends { name?: string; title?: string }>(items: T[]) {
   return [...items].sort((a, b) => (a.name ?? a.title ?? '').localeCompare(b.name ?? b.title ?? ''));
 }
 
+function sortCasesForDisplay<T extends { isFoundationCase?: boolean; title: string }>(items: T[]) {
+  return [...items].sort((a, b) => {
+    if (a.isFoundationCase && !b.isFoundationCase) return -1;
+    if (!a.isFoundationCase && b.isFoundationCase) return 1;
+    return a.title.localeCompare(b.title);
+  });
+}
+
 function isPublishedCase(dataset: ContentDataset, caseId: string, includeDrafts = false) {
   const caseItem = dataset.cases.find((item) => item.id === caseId);
   if (!caseItem) return false;
@@ -494,13 +502,13 @@ class LocalContentRepository implements AdminContentRepository {
 
   async getCasesByCondition(conditionId: string, includeDrafts = false): Promise<AdminCase[]> {
     const dataset = await this.getLocalDataset();
-    return dataset.cases
-      .filter(
+    return sortCasesForDisplay(
+      dataset.cases.filter(
         (item) =>
           item.conditionId === conditionId &&
           (includeDrafts || item.publishStatus === 'published'),
-      )
-      .sort((a, b) => a.title.localeCompare(b.title));
+      ),
+    );
   }
 
   async getCaseBundle(caseId: string, includeDrafts = false): Promise<CaseBundle> {
@@ -750,9 +758,11 @@ class FirebaseContentRepository implements AdminContentRepository {
 
   async getCasesByCondition(conditionId: string, includeDrafts = false): Promise<AdminCase[]> {
     const dataset = await this.getDataset();
-    return dataset.cases.filter(
-      (item) =>
-        item.conditionId === conditionId && (includeDrafts || item.publishStatus === 'published'),
+    return sortCasesForDisplay(
+      dataset.cases.filter(
+        (item) =>
+          item.conditionId === conditionId && (includeDrafts || item.publishStatus === 'published'),
+      ),
     );
   }
 

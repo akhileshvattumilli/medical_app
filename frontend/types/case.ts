@@ -4,7 +4,7 @@ export interface Case {
   title: string;
   shortDescription: string;
   difficulty: string;
-  tags: string[];
+  tags?: string[];
   isFoundationCase?: boolean;
 }
 

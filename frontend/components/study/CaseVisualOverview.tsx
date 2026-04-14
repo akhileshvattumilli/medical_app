@@ -4,6 +4,7 @@ import ContentIllustration from '../media/ContentIllustration';
 import { colors, layout } from '../../constants/theme';
 import { mergeSectionVisuals, type SectionImageRef } from '../../services/content/sectionMedia';
 import { getResourceAccessLabel, getResourceUrl } from '../../services/content/resourceLibrary';
+import { resolveCurriculumImageSource } from '../../services/content/curriculumAssets';
 import type { Mechanism } from '../../types/mechanism';
 import type { Resource } from '../../types/resource';
 import type { Section, SectionType } from '../../types/section';
@@ -179,7 +180,7 @@ export default function CaseVisualOverview({
               >
                 {resource.thumbnailUrl ? (
                   <Image
-                    source={{ uri: resource.thumbnailUrl }}
+                    source={resolveCurriculumImageSource(resource.thumbnailUrl)}
                     style={styles.resourceThumb}
                     contentFit="cover"
                     transition={180}

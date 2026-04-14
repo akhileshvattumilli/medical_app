@@ -3,6 +3,7 @@ import { Image } from 'expo-image';
 import { Resource } from '../../types/resource';
 import { colors } from '../../constants/theme';
 import { getResourceAccessLabel, getResourceUrl } from '../../services/content/resourceLibrary';
+import { resolveCurriculumImageSource } from '../../services/content/curriculumAssets';
 
 interface ResourceCardProps {
   resource: Resource;
@@ -28,7 +29,7 @@ export default function ResourceCard({
       {resource.thumbnailUrl ? (
         <View style={styles.thumbWrap}>
           <Image
-            source={{ uri: resource.thumbnailUrl }}
+            source={resolveCurriculumImageSource(resource.thumbnailUrl)}
             style={styles.thumbnail}
             contentFit="cover"
             transition={200}

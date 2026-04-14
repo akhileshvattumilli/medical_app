@@ -3,6 +3,7 @@ import { Linking, Platform, Pressable, ScrollView, StyleSheet, Text, View } from
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { colors, layout } from '../../constants/theme';
 import { getResourceAccessLabel, getResourceUrl } from '../../services/content/resourceLibrary';
+import { resolveCurriculumImageSource } from '../../services/content/curriculumAssets';
 import type { Resource } from '../../types/resource';
 
 type RelatedResourceStripProps = {
@@ -40,7 +41,7 @@ export default function RelatedResourceStrip({ resources }: RelatedResourceStrip
           >
             {resource.thumbnailUrl ? (
               <Image
-                source={{ uri: resource.thumbnailUrl }}
+                source={resolveCurriculumImageSource(resource.thumbnailUrl)}
                 style={styles.chipThumb}
                 contentFit="cover"
                 transition={160}

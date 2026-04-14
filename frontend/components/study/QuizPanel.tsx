@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Animated, { FadeIn, FadeInUp } from 'react-native-reanimated';
 import type { QuizQuestion } from '../../types/quiz';
@@ -6,6 +6,8 @@ import type { QuizAttempt } from '../../types/study';
 import { colors, layout } from '../../constants/theme';
 
 const OPTION_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+const FOUNDATION_CASE_ID = 'asthma_foundation_case';
+const FOUNDATION_SESSION_SIZE = 10;
 
 interface QuizPanelProps {
   questions: QuizQuestion[];
@@ -14,31 +16,88 @@ interface QuizPanelProps {
   onCompleteQuiz: () => Promise<void>;
 }
 
+function shuffle<T>(items: T[]): T[] {
+  const next = [...items];
+  for (let index = next.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    const tmp = next[index];
+    next[index] = next[swapIndex];
+    next[swapIndex] = tmp;
+  }
+  return next;
+}
+
+function pickFoundationSession(
+  questions: QuizQuestion[],
+  completedIds: Set<string>,
+): QuizQuestion[] {
+  const unseen = questions.filter((item) => !completedIds.has(item.id));
+  if (unseen.length >= FOUNDATION_SESSION_SIZE) {
+    return shuffle(unseen).slice(0, FOUNDATION_SESSION_SIZE);
+  }
+  if (unseen.length > 0) {
+    const filler = shuffle(questions.filter((item) => completedIds.has(item.id))).slice(
+      0,
+      FOUNDATION_SESSION_SIZE - unseen.length,
+    );
+    return [...shuffle(unseen), ...filler];
+  }
+  return shuffle(questions).slice(0, FOUNDATION_SESSION_SIZE);
+}
+
 export default function QuizPanel({
   questions,
   attempts,
   onAttempt,
   onCompleteQuiz,
 }: QuizPanelProps) {
+  const isFoundationMode =
+    questions.length > FOUNDATION_SESSION_SIZE && questions.some((item) => item.caseId === FOUNDATION_CASE_ID);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [sessionQuestionIds, setSessionQuestionIds] = useState<string[]>([]);
+  const [sessionAttemptMap, setSessionAttemptMap] = useState<Record<string, number>>({});
 
-  const attemptMap = useMemo(
-    () => new Map(attempts.map((attempt) => [attempt.questionId, attempt])),
+  const historicalAttemptMap = useMemo(
+    () => new Map(attempts.map((attempt) => [attempt.questionId, attempt.selectedIndex])),
     [attempts],
   );
+  const completedQuestionIds = useMemo(
+    () => new Set(attempts.map((attempt) => attempt.questionId)),
+    [attempts],
+  );
+  const foundationSessionQuestions = useMemo(() => {
+    if (!isFoundationMode) return questions;
+    if (sessionQuestionIds.length === 0) {
+      return pickFoundationSession(questions, completedQuestionIds);
+    }
+    const byId = new Map(questions.map((item) => [item.id, item]));
+    const mapped = sessionQuestionIds.map((id) => byId.get(id)).filter(Boolean) as QuizQuestion[];
+    if (mapped.length === sessionQuestionIds.length) return mapped;
+    return pickFoundationSession(questions, completedQuestionIds);
+  }, [completedQuestionIds, isFoundationMode, questions, sessionQuestionIds]);
+  const visibleQuestions = isFoundationMode ? foundationSessionQuestions : questions;
+  const attemptMap = useMemo(() => {
+    if (!isFoundationMode) {
+      return new Map(attempts.map((attempt) => [attempt.questionId, attempt.selectedIndex]));
+    }
+    return new Map(Object.entries(sessionAttemptMap));
+  }, [attempts, isFoundationMode, sessionAttemptMap]);
+  useEffect(() => {
+    if (!isFoundationMode) return;
+    if (sessionQuestionIds.length > 0) return;
+    const nextSet = pickFoundationSession(questions, completedQuestionIds);
+    setSessionQuestionIds(nextSet.map((item) => item.id));
+  }, [completedQuestionIds, isFoundationMode, questions, sessionQuestionIds.length]);
 
   // Reset submitted state when moving to a new question
-  const question = questions[currentIndex];
-  const previousAttempt = attemptMap.get(question?.id ?? '');
-  const isAnswered = submitted || !!previousAttempt;
-  const effectiveSelectedIndex = isAnswered
-    ? (submitted ? selectedIndex : (previousAttempt?.selectedIndex ?? null))
-    : selectedIndex;
+  const question = visibleQuestions[currentIndex];
+  const previousAttempt = question ? attemptMap.get(question.id) : undefined;
+  const isAnswered = previousAttempt !== undefined;
+  const effectiveSelectedIndex = isAnswered ? previousAttempt : selectedIndex;
   const isCorrect = effectiveSelectedIndex === question?.answerIndex;
 
-  if (questions.length === 0) {
+  if (visibleQuestions.length === 0) {
     return (
       <View style={styles.emptyCard}>
         <Text style={styles.emptyTitle}>No quiz items yet</Text>
@@ -49,24 +108,33 @@ export default function QuizPanel({
     );
   }
 
-  const answeredCount = attemptMap.size;
+  const answeredCount = visibleQuestions.filter((item) => attemptMap.has(item.id)).length;
+
+  const startNextFoundationSession = () => {
+    if (!isFoundationMode) return;
+    const nextSet = pickFoundationSession(questions, completedQuestionIds);
+    setSessionQuestionIds(nextSet.map((item) => item.id));
+    setSessionAttemptMap({});
+    setCurrentIndex(0);
+    setSelectedIndex(null);
+  };
 
   const handleSubmit = async () => {
     if (selectedIndex === null) return;
     const correct = selectedIndex === question.answerIndex;
-    setSubmitted(true);
+    if (isFoundationMode && question) {
+      setSessionAttemptMap((prev) => ({ ...prev, [question.id]: selectedIndex }));
+    }
     await onAttempt(question, selectedIndex, correct);
-
-    if (answeredCount + (previousAttempt ? 0 : 1) === questions.length) {
+    if (answeredCount + 1 === visibleQuestions.length && !isFoundationMode) {
       await onCompleteQuiz();
     }
   };
 
   const handleNext = () => {
-    if (currentIndex < questions.length - 1) {
+    if (currentIndex < visibleQuestions.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setSelectedIndex(null);
-      setSubmitted(false);
     }
   };
 
@@ -77,7 +145,7 @@ export default function QuizPanel({
         <View style={styles.headerLeft}>
           <Text style={styles.eyebrow}>Practice Questions</Text>
           <Text style={styles.headerTitle}>
-            Question {currentIndex + 1} <Text style={styles.headerOf}>of {questions.length}</Text>
+            Question {currentIndex + 1} <Text style={styles.headerOf}>of {visibleQuestions.length}</Text>
           </Text>
         </View>
       </View>
@@ -150,13 +218,25 @@ export default function QuizPanel({
               </Text>
             </View>
             <Text style={styles.feedbackText}>{question.explanation}</Text>
-            {currentIndex < questions.length - 1 ? (
+            {currentIndex < visibleQuestions.length - 1 ? (
               <Pressable style={styles.nextButton} onPress={handleNext}>
                 <Text style={styles.nextText}>Next question →</Text>
               </Pressable>
             ) : (
-              <Pressable style={styles.nextButton} onPress={onCompleteQuiz}>
-                <Text style={styles.nextText}>Finish quiz ✓</Text>
+              <Pressable
+                style={styles.nextButton}
+                onPress={async () => {
+                  if (isFoundationMode) {
+                    await onCompleteQuiz();
+                    startNextFoundationSession();
+                    return;
+                  }
+                  await onCompleteQuiz();
+                }}
+              >
+                <Text style={styles.nextText}>
+                  {isFoundationMode ? 'Start next 10 →' : 'Finish quiz ✓'}
+                </Text>
               </Pressable>
             )}
           </Animated.View>
@@ -164,20 +244,20 @@ export default function QuizPanel({
       </Animated.View>
 
       {/* Question nav dots */}
-      {questions.length > 1 ? (
+      {visibleQuestions.length > 1 ? (
         <View style={styles.dotsRow}>
-          {questions.map((q, index) => {
+          {visibleQuestions.map((q, index) => {
             const attempt = attemptMap.get(q.id);
             const isCurrent = index === currentIndex;
             return (
               <Pressable
                 key={q.id}
-                onPress={() => { setCurrentIndex(index); setSelectedIndex(null); setSubmitted(false); }}
+                onPress={() => { setCurrentIndex(index); setSelectedIndex(null); }}
                 style={[
                   styles.dot,
                   isCurrent && styles.dotActive,
-                  attempt?.correct === true && !isCurrent && styles.dotCorrect,
-                  attempt?.correct === false && !isCurrent && styles.dotWrong,
+                  attempt === q.answerIndex && !isCurrent && styles.dotCorrect,
+                  attempt !== undefined && attempt !== q.answerIndex && !isCurrent && styles.dotWrong,
                 ]}
               />
             );
