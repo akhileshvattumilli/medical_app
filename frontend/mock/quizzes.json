@@ -1246,5 +1246,115 @@
       "toxicity",
       "cAMP"
     ]
+  },
+  {
+    "id": "quiz_beta_blocker_primary_receptor",
+    "caseId": "beta_blocker_foundation_case",
+    "sectionType": "pharmacology",
+    "question": "Which receptor subtype is the main therapeutic target of metoprolol in the heart?",
+    "options": [
+      "Beta2 adrenergic receptor",
+      "Beta1 adrenergic receptor",
+      "Muscarinic M2 receptor",
+      "Alpha1 adrenergic receptor"
+    ],
+    "answerIndex": 1,
+    "explanation": "Metoprolol is relatively beta1-selective and acts primarily at beta1 receptors in cardiac tissue.",
+    "tags": [
+      "beta1",
+      "metoprolol",
+      "receptor"
+    ]
+  },
+  {
+    "id": "quiz_cardiac_histology_feature",
+    "caseId": "beta_blocker_foundation_case",
+    "sectionType": "histology",
+    "question": "Which histologic feature best distinguishes cardiac muscle from skeletal muscle in this module?",
+    "options": [
+      "Peripheral multinucleation without junctions",
+      "Intercalated discs with centrally placed nuclei",
+      "Absence of striations",
+      "Predominantly smooth muscle spindle cells"
+    ],
+    "answerIndex": 1,
+    "explanation": "Cardiac muscle is striated but has centrally located nuclei and intercalated discs that couple myocytes.",
+    "tags": [
+      "histology",
+      "intercalated-discs"
+    ]
+  },
+  {
+    "id": "quiz_beta1_cascade_effect",
+    "caseId": "beta_blocker_foundation_case",
+    "sectionType": "physiology",
+    "question": "Blocking beta1 receptors most directly reduces which downstream physiologic signal?",
+    "options": [
+      "Intracellular cyclic AMP signaling in cardiac myocytes",
+      "Histamine release from mast cells",
+      "Sodium reabsorption in the distal nephron",
+      "Acetylcholine release at the neuromuscular junction"
+    ],
+    "answerIndex": 0,
+    "explanation": "Beta1 receptors are Gs-coupled; antagonism reduces cAMP signaling and downstream calcium-dependent contractility.",
+    "tags": [
+      "physiology",
+      "cAMP",
+      "contractility"
+    ]
+  },
+  {
+    "id": "quiz_beta_blocker_clinical_uses",
+    "caseId": "beta_blocker_foundation_case",
+    "sectionType": "treatment",
+    "question": "Which set contains common cardiovascular uses highlighted for beta blockers in this lesson?",
+    "options": [
+      "Asthma rescue, peptic ulcer treatment, and acute migraine aura",
+      "Hypertension, angina, selected arrhythmias, and post-MI care",
+      "Diabetic ketoacidosis, hypothyroidism, and septic shock",
+      "Acute pulmonary embolism thrombolysis only"
+    ],
+    "answerIndex": 1,
+    "explanation": "The source lesson lists hypertension, angina, some arrhythmias, and heart attack-related indications.",
+    "tags": [
+      "clinical-uses",
+      "cardiovascular"
+    ]
+  },
+  {
+    "id": "quiz_hypertension_case_drug_selection",
+    "caseId": "hypertension_metoprolol_case",
+    "sectionType": "treatment",
+    "question": "For a patient with hypertension, resting tachycardia, and exertional angina, which drug choice best matches this module?",
+    "options": [
+      "Metoprolol",
+      "Albuterol",
+      "Omeprazole",
+      "Hydrochlorothiazide as monotherapy despite ongoing tachycardia"
+    ],
+    "answerIndex": 0,
+    "explanation": "Metoprolol addresses heart rate, contractility, and blood pressure while lowering myocardial oxygen demand.",
+    "tags": [
+      "case-application",
+      "drug-selection"
+    ]
+  },
+  {
+    "id": "quiz_hypertension_case_response_marker",
+    "caseId": "hypertension_metoprolol_case",
+    "sectionType": "clinicalPearl",
+    "question": "Which early follow-up trend most strongly supports effective beta1 blockade?",
+    "options": [
+      "Rising resting heart rate with unchanged blood pressure",
+      "Lower resting heart rate and improving blood pressure trend",
+      "Increased tremor and episodic tachycardia",
+      "Persistent exertional chest pain with no hemodynamic change"
+    ],
+    "answerIndex": 1,
+    "explanation": "Expected early effects include lower pulse and improving blood pressure when therapy is effective and tolerated.",
+    "tags": [
+      "follow-up",
+      "monitoring"
+    ]
   }
 ]

@@ -182,5 +182,65 @@
       "toxicity",
       "hypokalemia"
     ]
+  },
+  {
+    "id": "resource_pharm_corner_cardio_slides",
+    "caseId": "beta_blocker_foundation_case",
+    "sectionType": "histology",
+    "type": "slides",
+    "title": "Pharm Corner Cardio slides",
+    "description": "Source slide deck introducing cardiovascular histology and beta blockers.",
+    "caption": "Primary lesson source for histology and beta-blocker overview.",
+    "sourceType": "pptx",
+    "sourceReference": {
+      "fileName": "Pharm Corner Cardio.pptx",
+      "pageNumber": 1
+    },
+    "assetKey": "pharm_corner_cardio_slides",
+    "tags": [
+      "cardio",
+      "histology",
+      "beta-blocker"
+    ]
+  },
+  {
+    "id": "resource_cardio_beta_blocker_transcript",
+    "caseId": "beta_blocker_foundation_case",
+    "sectionType": "pharmacology",
+    "type": "transcript",
+    "title": "Cardiovascular and Beta Blockers transcript",
+    "description": "Narrated transcript covering beta1 receptor signaling and metoprolol effects.",
+    "caption": "Used to align mechanism and clinical-effect language in this module.",
+    "sourceType": "vtt",
+    "sourceReference": {
+      "fileName": "Cardiovascular and Beta Blockers_Recording.transcript.vtt",
+      "pageNumber": 1
+    },
+    "assetKey": "cardiovascular_beta_blockers_transcript",
+    "tags": [
+      "transcript",
+      "metoprolol",
+      "mechanism"
+    ]
+  },
+  {
+    "id": "resource_respiratory_cv_lab_questions",
+    "caseId": "hypertension_metoprolol_case",
+    "sectionType": "quiz",
+    "type": "question-bank",
+    "title": "Respiratory and CV Lab Practical Questions",
+    "description": "Practical question format used to build receptor-target identification prompts.",
+    "caption": "Question style reference for in-app active-recall items.",
+    "sourceType": "pptx",
+    "sourceReference": {
+      "fileName": "Pharm Corner Respiratory and CV Lab Practical Questions.pptx",
+      "pageNumber": 1
+    },
+    "assetKey": "respiratory_cv_lab_practical_questions",
+    "tags": [
+      "lab-practical",
+      "quiz-style",
+      "receptors"
+    ]
   }
 ]

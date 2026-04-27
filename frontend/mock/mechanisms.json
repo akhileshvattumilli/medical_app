@@ -68,5 +68,38 @@
         "description": "Decreasing cAMP signaling with cardioselective beta-blockade can help counter toxicity while limiting asthma risk."
       }
     ]
+  },
+  {
+    "id": "metoprolol_beta1_antagonism_mechanism",
+    "caseId": "beta_blocker_foundation_case",
+    "title": "Metoprolol beta1 receptor antagonism",
+    "relatedDrug": "metoprolol",
+    "steps": [
+      {
+        "stepNumber": 1,
+        "label": "Sympathetic baseline",
+        "description": "Norepinephrine stimulates beta1 receptors on cardiac myocytes during sympathetic activation."
+      },
+      {
+        "stepNumber": 2,
+        "label": "Gs-cAMP cascade",
+        "description": "Beta1 signaling increases adenylate cyclase activity and cyclic AMP, amplifying calcium-mediated contraction."
+      },
+      {
+        "stepNumber": 3,
+        "label": "Competitive antagonism",
+        "description": "Metoprolol occupies beta1 receptors and reduces catecholamine-driven signaling."
+      },
+      {
+        "stepNumber": 4,
+        "label": "Hemodynamic reduction",
+        "description": "Heart rate and contractility decline, lowering cardiac output and myocardial oxygen demand."
+      },
+      {
+        "stepNumber": 5,
+        "label": "Clinical effect",
+        "description": "Blood pressure control and angina symptom improvement occur in suitable patients."
+      }
+    ]
   }
 ]

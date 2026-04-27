@@ -11,5 +11,18 @@
       "Interpret question-bank style asthma scenarios and adverse-effect patterns.",
       "Use resources and cases to connect active recall with foundational study content."
     ]
+  },
+  {
+    "id": "beta_blocker_therapy",
+    "systemId": "cardiovascular",
+    "name": "Beta-Blocker Therapy in Cardiovascular Disease",
+    "summary": "Focused cardiovascular module on beta-adrenergic signaling, cardiac histology, and clinical beta-blocker use for hypertension, angina, and rhythm control.",
+    "learningGoals": [
+      "Identify beta1 receptor biology in cardiac myocytes and connect it to sympathetic physiology.",
+      "Recognize core cardiac muscle histology findings including striations, centrally placed nuclei, and intercalated discs.",
+      "Explain how metoprolol antagonizes beta1 receptors to reduce heart rate, contractility, cardiac output, and blood pressure.",
+      "Apply beta-blocker pharmacology to common clinical indications such as hypertension, angina, and selected tachyarrhythmias.",
+      "Use adverse-effect and contraindication reasoning to choose safer beta-blocker strategies in comorbid disease."
+    ]
   }
 ]

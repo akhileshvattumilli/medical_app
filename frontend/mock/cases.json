@@ -38,5 +38,34 @@
     "shortDescription": "A 25-year-old woman with asthma presents after theophylline overdose with seizure, hypotension, tachycardia, and respiratory distress.",
     "difficulty": "hard",
     "isFoundationCase": false
+  },
+  {
+    "id": "beta_blocker_foundation_case",
+    "conditionId": "beta_blocker_therapy",
+    "title": "Beta-Blocker Foundation Review",
+    "shortDescription": "Foundation review of cardiovascular histology, beta-adrenergic receptor signaling, and metoprolol pharmacology based on Pharm Corner cardio lesson materials.",
+    "difficulty": "easy",
+    "tags": [
+      "foundation",
+      "cardiovascular",
+      "beta-blocker",
+      "metoprolol",
+      "histology"
+    ],
+    "isFoundationCase": true
+  },
+  {
+    "id": "hypertension_metoprolol_case",
+    "conditionId": "beta_blocker_therapy",
+    "title": "Sympathetic-driven hypertension with exertional angina",
+    "shortDescription": "A patient with persistent hypertension, tachycardia, and exertional chest discomfort requires selection and monitoring of beta-blocker therapy.",
+    "difficulty": "medium",
+    "tags": [
+      "hypertension",
+      "angina",
+      "beta1-selective",
+      "metoprolol"
+    ],
+    "isFoundationCase": false
   }
 ]

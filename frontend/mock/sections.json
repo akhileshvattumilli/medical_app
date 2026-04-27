@@ -105,5 +105,98 @@
       "acute-vs-chronic",
       "slides"
     ]
+  },
+  {
+    "id": "beta_blocker_overview_section",
+    "caseId": "beta_blocker_foundation_case",
+    "type": "narrative",
+    "title": "Cardiovascular beta-blocker overview",
+    "content": "Beta blockers are core cardiovascular drugs used for hypertension, angina, selected arrhythmias, and post-myocardial infarction care. In this module, metoprolol is the anchor example for understanding beta1-selective antagonism and downstream hemodynamic effects.",
+    "order": 1,
+    "tags": [
+      "overview",
+      "clinical-uses",
+      "beta-blocker"
+    ]
+  },
+  {
+    "id": "cardiac_histology_beta_blocker_section",
+    "caseId": "beta_blocker_foundation_case",
+    "type": "histology",
+    "title": "Cardiac muscle histology linked to function",
+    "content": "Cardiac muscle is striated like skeletal muscle but has centrally placed nuclei and intercalated discs that electrically and mechanically couple adjacent myocytes. These features support synchronized contraction and explain why receptor-level signaling changes produce system-wide hemodynamic effects.",
+    "order": 1,
+    "tags": [
+      "histology",
+      "intercalated-discs",
+      "myocyte"
+    ]
+  },
+  {
+    "id": "beta1_signaling_physiology_section",
+    "caseId": "beta_blocker_foundation_case",
+    "type": "physiology",
+    "title": "Beta1 receptor physiology in the heart",
+    "content": "Sympathetic norepinephrine activates beta1 receptors on cardiac myocytes, stimulating Gs signaling, adenylate cyclase activity, cyclic AMP production, and greater calcium availability. The net physiologic effect is increased contractility and heart rate with increased cardiac output.",
+    "order": 1,
+    "tags": [
+      "beta1",
+      "sympathetic",
+      "cAMP",
+      "calcium"
+    ]
+  },
+  {
+    "id": "metoprolol_pharmacology_section",
+    "caseId": "beta_blocker_foundation_case",
+    "type": "pharmacology",
+    "title": "Metoprolol pharmacology and therapeutic effects",
+    "content": "Metoprolol competitively antagonizes beta1 receptors, blunting sympathetic signaling in the myocardium. This lowers heart rate, contractility, and cardiac output, reducing myocardial oxygen demand and contributing to blood pressure control in appropriate patients.",
+    "order": 1,
+    "tags": [
+      "metoprolol",
+      "beta1-selective",
+      "antagonist"
+    ]
+  },
+  {
+    "id": "beta_blocker_clinical_use_section",
+    "caseId": "beta_blocker_foundation_case",
+    "type": "treatment",
+    "title": "Clinical use patterns and safety focus",
+    "content": "Common cardiovascular uses include hypertension, chronic stable angina, and selected tachyarrhythmias. Monitoring should focus on blood pressure, pulse, fatigue, and signs of excessive beta blockade such as symptomatic bradycardia or hypotension.",
+    "order": 1,
+    "tags": [
+      "treatment",
+      "hypertension",
+      "angina",
+      "arrhythmia"
+    ]
+  },
+  {
+    "id": "hypertension_case_clinical_section",
+    "caseId": "hypertension_metoprolol_case",
+    "type": "narrative",
+    "title": "Clinical interpretation of sympathetic overactivity",
+    "content": "The combination of persistent hypertension, elevated resting pulse, and exertional chest discomfort supports a strategy that reduces cardiac workload. Beta1-selective blockade addresses both rate control and myocardial oxygen demand while supporting blood pressure reduction.",
+    "order": 1,
+    "tags": [
+      "clinical-reasoning",
+      "hypertension",
+      "angina"
+    ]
+  },
+  {
+    "id": "hypertension_case_treatment_section",
+    "caseId": "hypertension_metoprolol_case",
+    "type": "treatment",
+    "title": "Metoprolol initiation and follow-up targets",
+    "content": "Initial therapy should be paired with clear follow-up goals: lower resting heart rate, improved blood pressure trajectory, and fewer exertional symptoms. Dose escalation should be gradual and guided by tolerance, pulse, and symptom response.",
+    "order": 1,
+    "tags": [
+      "dose-titration",
+      "follow-up",
+      "targets"
+    ]
   }
 ]
