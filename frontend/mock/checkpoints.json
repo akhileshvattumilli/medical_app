@@ -25,5 +25,32 @@
     "prompt": "Which laboratory and cardiac findings should make you suspect beta2-agonist induced hypokalemia after repeated albuterol treatment?",
     "hint": "Tie the adverse effect to intracellular potassium shift and ECG change.",
     "answer": "Potassium 2.6 mEq/L with weakness, nausea, and U waves on ECG after repeated albuterol treatments strongly suggests beta2-agonist induced intracellular potassium shift."
+  },
+  {
+    "id": "checkpoint_beta_foundation_histology",
+    "caseId": "beta_blocker_foundation_case",
+    "tabKey": "study",
+    "title": "Anchor the histology",
+    "prompt": "What two histologic findings from the cardio lesson should you name when identifying cardiac muscle?",
+    "hint": "Think nuclei location and junctional structures.",
+    "answer": "Cardiac muscle in this module is identified by centrally placed nuclei and intercalated discs (with striations also present)."
+  },
+  {
+    "id": "checkpoint_beta_foundation_mechanism",
+    "caseId": "beta_blocker_foundation_case",
+    "tabKey": "mechanism",
+    "title": "Mechanism chain",
+    "prompt": "State the beta1 signaling chain from norepinephrine to increased cardiac work, then describe what metoprolol blocks.",
+    "hint": "Use receptor -> Gs -> cAMP -> calcium -> contractility/heart rate.",
+    "answer": "Norepinephrine activates beta1 receptors, increasing Gs signaling, cAMP, and calcium-dependent contractility and rate. Metoprolol competitively blocks beta1 receptors, reducing this cascade and lowering cardiac work."
+  },
+  {
+    "id": "checkpoint_hypertension_case_followup",
+    "caseId": "hypertension_metoprolol_case",
+    "tabKey": "treatment",
+    "title": "Follow-up targets",
+    "prompt": "Which two objective measurements should improve first if metoprolol is working in this case?",
+    "hint": "Use one vital sign and one pressure metric.",
+    "answer": "An early response should show a lower resting heart rate and an improving blood pressure trend on serial checks."
   }
 ]

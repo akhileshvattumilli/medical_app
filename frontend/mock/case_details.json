@@ -266,5 +266,99 @@
       "followUp": "Requires ICU-level monitoring with aggressive seizure control and hemodynamic support.",
       "outcome": "This case reinforces theophylline toxicity and the principle of decreasing intracellular cAMP to counter the overdose state."
     }
+  },
+  {
+    "caseId": "beta_blocker_foundation_case",
+    "clinicalNarrative": {
+      "presentation": "This foundation case introduces cardiovascular histology and beta-blocker pharmacology before learners tackle patient-specific scenarios.",
+      "history": "The lesson emphasizes beta1 receptor signaling in the sympathetic nervous system, metoprolol as a prototypical beta blocker, and major clinical uses in cardiovascular care.",
+      "vitals": {},
+      "exam": "No single patient exam is the focus; this case synthesizes structure-function and drug-mechanism concepts.",
+      "discussionPrompts": [
+        "How do cardiac histology findings support coordinated myocardial contraction?",
+        "What signaling events connect beta1 receptor activation to increased contractility?",
+        "Why does beta1 antagonism lower blood pressure and myocardial oxygen demand?"
+      ]
+    },
+    "diagnosis": {
+      "name": "Cardiovascular sympathetic signaling target for beta-blockade",
+      "keyFindings": [
+        "Beta1 adrenergic receptors are present in cardiac myocytes",
+        "Sympathetic signaling increases cyclic AMP and intracellular calcium",
+        "Cardiac muscle shows intercalated discs and centrally located nuclei",
+        "Metoprolol reduces heart rate, contractility, and cardiac output"
+      ],
+      "tests": [
+        {
+          "name": "Blood pressure and pulse trend review",
+          "result": "Persistent elevated blood pressure with elevated resting heart rate before treatment",
+          "interpretation": "Supports benefit from lowering sympathetic cardiac drive"
+        }
+      ]
+    },
+    "treatment": {
+      "plan": "Use beta1-selective blockade to reduce cardiac workload while tracking hemodynamics and symptoms over time.",
+      "medications": [
+        {
+          "name": "Metoprolol",
+          "class": "beta1-selective adrenergic antagonist",
+          "role": "decrease heart rate, contractility, and blood pressure"
+        }
+      ],
+      "followUp": "Reassess blood pressure, heart rate, exercise tolerance, and adverse effects after initiation and dose titration.",
+      "outcome": "Learners should leave this case with a coherent foundation linking cardiac histology, receptor signaling, and beta-blocker effects."
+    }
+  },
+  {
+    "caseId": "hypertension_metoprolol_case",
+    "clinicalNarrative": {
+      "presentation": "A 56-year-old man reports headaches, exertional chest pressure, and palpitations. Home blood pressure remains elevated despite diet changes.",
+      "history": "He has no history of asthma or severe bradycardia. Clinic review shows persistent stage 2 hypertension with resting sinus tachycardia and exercise-triggered angina symptoms.",
+      "vitals": {
+        "bloodPressure": "156/94 mmHg",
+        "heartRate_bpm": 98,
+        "respiratoryRate_bpm": 16,
+        "oxygenSaturation_percent": 98
+      },
+      "exam": "Cardiopulmonary exam is otherwise stable without signs of acute heart failure.",
+      "discussionPrompts": [
+        "Why is a beta1-selective agent reasonable in this presentation?",
+        "Which physiologic changes should occur after effective beta-blocker therapy?",
+        "What findings would require dose reduction or medication reassessment?"
+      ]
+    },
+    "diagnosis": {
+      "name": "Hypertension with elevated sympathetic cardiac drive and stable exertional angina",
+      "keyFindings": [
+        "Persistent blood pressure elevation",
+        "Resting tachycardia",
+        "Exertional chest discomfort consistent with demand ischemia",
+        "No immediate contraindication to beta1-selective blockade"
+      ],
+      "tests": [
+        {
+          "name": "Electrocardiogram",
+          "result": "Sinus tachycardia without acute ischemic changes",
+          "interpretation": "Supports rate control target while evaluating ischemic burden"
+        },
+        {
+          "name": "Serial blood pressure log",
+          "result": "Typical readings 150s/90s over 2 weeks",
+          "interpretation": "Confirms sustained hypertension requiring pharmacotherapy"
+        }
+      ]
+    },
+    "treatment": {
+      "plan": "Start metoprolol and titrate to heart-rate and blood-pressure response while reinforcing lifestyle and angina trigger management.",
+      "medications": [
+        {
+          "name": "Metoprolol",
+          "class": "beta1-selective adrenergic antagonist",
+          "role": "first-line rate and pressure reduction with anti-anginal benefit"
+        }
+      ],
+      "followUp": "Follow up in 2 to 4 weeks to reassess blood pressure, resting pulse, exercise symptoms, and medication tolerance.",
+      "outcome": "Early follow-up shows improved resting heart rate and lower blood pressure with reduced angina frequency."
+    }
   }
 ]
